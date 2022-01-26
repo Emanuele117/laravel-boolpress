@@ -57,14 +57,14 @@
             <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">
+                        <a class="nav-link active" aria-current="page" href="{{route('admin.dashboard')}}">
                         <i class="fas fa-tachometer-alt  fa-lg fa-fw  "></i>
                         Dashboard
                         </a>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('admin.products.index')}}">
                         <i class="fas fa-shopping-bag  fa-lg fa-fw  "></i>
                         Products
                         </a>

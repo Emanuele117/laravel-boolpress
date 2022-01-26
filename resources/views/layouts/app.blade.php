@@ -43,7 +43,7 @@
                             <a class="nav-link" href="#">Contacts</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">shop</a>
+                            <a class="nav-link" href="{{route('products.index')}}">shop</a>
                         </li>
                     </ul>
 
