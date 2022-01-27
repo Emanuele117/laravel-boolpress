@@ -3,6 +3,10 @@
 
 @section('content')
 
+<h1>Products</h1>
+
+<a name="" id="" class="btn btn-dark" href="{{route('admin.products.create')}}" role="button">Create Product</a>
+
 <table class="table">
     <thead>
         <tr>
