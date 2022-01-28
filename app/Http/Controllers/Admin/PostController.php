@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -71,7 +72,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
@@ -83,7 +84,18 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $validated = $request->validate([
+            'title' => ['required', Rule::unique('posts')->ignore($post->id), 'max:200'],
+            'sub_title' => ['nullable'],
+            'cover' => ['nullable'],
+            'body' => ['nullable'],
+        ]);
+
+        $validated['slug'] = Str::slug($validated['title']);
+
+        $Post->update($validated);
+
+        return redirect()->route('admin.posts.index')->with('message', 'Updated Post');
     }
 
     /**
@@ -94,6 +106,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('admin.posts.index')->with('message', 'Deleted Post');
     }
 }
