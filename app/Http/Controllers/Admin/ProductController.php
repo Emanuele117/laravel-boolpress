@@ -36,7 +36,19 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        ddd($request->all());
+        //ddd($request->all());
+
+        $validated = $request->validate([
+            'name' => 'required',
+            'image' => 'nullable',
+            'price' => 'nullable',
+            'description' => 'nullable'
+        ]);
+
+        //salvataggio
+        Product::create($validated);
+        //redirect
+        return redirect()->route('admin.products.index');
     }
 
     /**
@@ -47,7 +59,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('guest.products.show', compact('product'));
     }
 
     /**

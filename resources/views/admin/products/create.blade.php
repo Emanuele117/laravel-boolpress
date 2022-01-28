@@ -11,7 +11,7 @@
 
     <div class="mb-3">
       <label for="name" class="form-label">Name</label>
-      <input type="text" name="name" id="name" class="form-control" placeholder="Lenovo laptop" aria-describedby="nameHelper">
+      <input type="text" name="name" id="name" class="form-control" placeholder="Lenovo laptop" aria-describedby="nameHelper" value="{{old('name')}}">
       <small id="nameHelper" class="text-muted">Type a name for your product</small>
       @error('name')
         <div class="alert alert-danger">{{ $message }}</div>
@@ -20,7 +20,7 @@
 
     <div class="mb-3">
       <label for="image" class="form-label">Image</label>
-      <input type="text" name="image" id="image" class="form-control" placeholder="https//" aria-describedby="imageHelper">
+      <input type="text" name="image" id="image" class="form-control" placeholder="https//" aria-describedby="imageHelper" value="{{old('image')}}">
       <small id="imageHelper" class="text-muted">Type a image for your product</small>
       @error('image')
         <div class="alert alert-danger">{{ $message }}</div>
@@ -30,7 +30,7 @@
 
     <div class="mb-3">
       <label for="price" class="form-label">Price</label>
-      <input type="number" step="0.001" name="price" id="price" class="form-control" placeholder="" aria-describedby="priceHelper">
+      <input type="number" step="0.001" name="price" id="price" class="form-control" placeholder="" aria-describedby="priceHelper" value="{{old('price')}}">
       <small id="priceHelper" class="text-muted">Type a Price for your product</small>
       @error('price')
         <div class="alert alert-danger">{{ $message }}</div>
@@ -39,7 +39,7 @@
 
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>
-      <textarea class="form-control" name="description" id="description" rows="5"></textarea>
+      <textarea class="form-control" name="description" id="description" rows="5">{{old('description')}}</textarea>
       @error('description')
         <div class="alert alert-danger">{{ $message }}</div>
       @enderror

@@ -24,8 +24,8 @@
             <td>{{$product->name}}</td>
             <td>{{$product->price}}</td>
             <td>
-                <i class="fas fa-eye fa-lg fa-fw"></i>
-                <i class="fas fa-pencil-alt  fa-lg fa-fw  "></i>
+                <a href="{{route('products.show', $product->id)}}"><i class="fas fa-eye fa-lg fa-fw"></i></a>
+                <i class="fas fa-pencil-alt  fa-lg fa-fw "></i> 
                 <i class="fas fa-trash fa-lg fa-fw"></i>
             </td>
 
