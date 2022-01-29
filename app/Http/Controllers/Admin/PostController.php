@@ -46,6 +46,7 @@ class PostController extends Controller
             'sub_title' => ['nullable'],
             'cover' => ['nullable'],
             'body' => ['nullable'],
+            'category_id' => ['nullable', 'exists:categories,id']
         ]);
 
         $validated['slug'] = Str::slug($validated['title']);

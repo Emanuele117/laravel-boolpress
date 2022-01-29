@@ -8,6 +8,12 @@
 
     <h1 class="card-title">{{$post->title}}</h1>
     <h4 class="card-title">{{$post->sub_title}}</h4>
+    <div class="metadata">
+        <div class="category">
+
+            Category: {{$post->category != null ? $post->category->name : 'Uncategorized'}}
+        </div>
+    </div>
     <p class="card-text">{{$post->body}}</p>
     
 
@@ -16,7 +22,6 @@
         <a href="#">Back to admin</a>
     </div>
     @endauth 
-
 
 
 </div>
