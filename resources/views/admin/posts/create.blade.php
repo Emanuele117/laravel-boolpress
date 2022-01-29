@@ -29,6 +29,19 @@
     </div>
 
     <div class="mb-3">
+      <label for="category_id" class="form-label">Categories</label>
+      <select class="form-control" name="category_id" id="category_id">
+        <option value="" selected >Select a category</option>
+        
+        @foreach($categories as $category)
+
+        <option value="{{$category->id}}">{{$category->name}}</option>
+
+        @endforeach
+      </select>
+    </div>
+
+    <div class="mb-3">
       <label for="body" class="form-label">Body</label>
       <textarea class="form-control @error('body') is_invalid @enderror" name="" id="" rows="5">{{old('body')}}</textarea>
     </div>
