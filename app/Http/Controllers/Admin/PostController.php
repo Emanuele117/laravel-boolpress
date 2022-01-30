@@ -18,7 +18,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderByDesc('id')->paginate(12);
+        
+        $posts = Auth::user()->posts()->orderByDesc('id')->paginate(12);
         return view('admin.posts.index', compact('posts'));
     }
 
