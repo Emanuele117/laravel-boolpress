@@ -28,6 +28,10 @@ Route::resource('posts', PostController::class)->only([
 ])->parameter('post', 'post:slug');
 
 
+// categories/{category:slug}/posts -> >CategoryController@posts 
+
+Route::get('categories/{category}/posts', 'CategoryController@posts')->name('categories.posts');
+
 
 Auth::routes();
 
