@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+
+    protected $fillable = ['name', 'slug'];
+
     /**
      * Get all of the posts for the Category
      *
