@@ -59,16 +59,7 @@ class PostController extends Controller
         return redirect()->route('admin.posts.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -79,7 +70,11 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::all();
-        return view('admin.posts.edit', compact('post', 'categories'));
+        if(Auth::id() === $post->user_id){
+            return view('admin.posts.edit', compact('post', 'categories'));
+        } else{
+            abort(403);
+        }
     }
 
     /**
@@ -91,18 +86,26 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $validated = $request->validate([
-            'title' => ['required', Rule::unique('posts')->ignore($post->id), 'max:200'],
-            'sub_title' => ['nullable'],
-            'cover' => ['nullable'],
-            'body' => ['nullable'],
-        ]);
 
-        $validated['slug'] = Str::slug($validated['title']);
+        if(Auth::id() === $post->user_id){
 
-        $Post->update($validated);
+            $validated = $request->validate([
+                'title' => ['required', Rule::unique('posts')->ignore($post->id), 'max:200'],
+                'sub_title' => ['nullable'],
+                'cover' => ['nullable'],
+                'body' => ['nullable'],
+            ]);
 
-        return redirect()->route('admin.posts.index')->with('message', 'Updated Post');
+            $validated['slug'] = Str::slug($validated['title']);
+    
+            $Post->update($validated);
+    
+            return redirect()->route('admin.posts.index')->with('message', 'Updated Post');
+
+        } else{
+            abort(403);
+        }
+
     }
 
     /**
