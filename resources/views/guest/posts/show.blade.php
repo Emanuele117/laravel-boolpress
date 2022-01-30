@@ -19,6 +19,14 @@
                 <span>'Uncategorized'</span>
             @endif
         </div>
+        <div class="tags">
+            Tags : 
+            @forelse($post->tags as $tag)
+                <a href="{{route('tags.posts', $tag->slug)}}">{{$tag->name}}</a>
+            @empty
+                <span>Untagged</span>
+            @endforelse
+        </div>
     </div>
     <p class="card-text">{{$post->body}}</p>
     

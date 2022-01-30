@@ -1,18 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class TagController extends Controller
 {
-
-    public function tags(Tag $tag)
-    {
-        $post = $tag->posts()->orderByDesc('id')->paginate(10);
-        return view('guest.tags.posts', compact('posts', 'tag'));
-    }
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +16,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::all();
+        return view('admin.tags.index', compact('tags'));
     }
 
     /**
@@ -41,7 +38,16 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated_date = $requeste->$validate([
+            'name' => 'required|unique:tags'
+
+        ]);
+
+        $validated_date['slug'] = Str::slug($request->name);
+
+        Tag::create($validated_date);
+
+        return redirect()->back()->message('message', 'Tag created');
     }
 
     /**

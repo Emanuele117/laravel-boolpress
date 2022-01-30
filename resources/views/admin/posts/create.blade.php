@@ -42,6 +42,16 @@
     </div>
 
     <div class="mb-3">
+      <label for="tags" class="form-label">Tags</label>
+      <select multiple class="form-select" name="tags[]" id="tags">
+        <option disabled>>Select all tags</option>
+        @foreach($tags as $tag)
+          <option value="{{$tag->id}}">{{$tag->name}}</option>
+        @endforeach
+      </select>
+    </div>
+
+    <div class="mb-3">
       <label for="body" class="form-label">Body</label>
       <textarea class="form-control @error('body') is_invalid @enderror" name="" id="" rows="5">{{old('body')}}</textarea>
     </div>

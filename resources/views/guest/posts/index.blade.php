@@ -47,7 +47,15 @@
                         Tags
                     </h3>
                     <ul>
-                        
+                    <ul>
+                        @foreach($tags as $tag)
+            
+                            <li>
+                                <a href="{{route('tags.posts', $tag->slug)}}">{{$tag->name}}</a>
+                            </li>
+            
+                        @endforeach
+                    </ul>
                     </ul>
                 </div>
             </div>
