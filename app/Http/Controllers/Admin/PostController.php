@@ -52,6 +52,8 @@ class PostController extends Controller
 
         $validated['slug'] = Str::slug($validated['title']);
 
+        $validated['user_id'] = Auth::id();
+
         Post::create($validated);
 
         return redirect()->route('admin.posts.index');
