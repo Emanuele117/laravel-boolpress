@@ -116,7 +116,12 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $post->delete();
-        return redirect()->route('admin.posts.index')->with('message', 'Deleted Post');
+        if(Auth::id() === $post->user_id){
+
+            $post->delete();
+            return redirect()->route('admin.posts.index')->with('message', 'Deleted Post');
+        } else{
+            abort(403);
+        }
     }
 }
