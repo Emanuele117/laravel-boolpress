@@ -25,8 +25,11 @@
     </div>
 
     <div class="mb-3">
+      <div class="col">
+        <img src="{{asset('storage/' . $post->cover}}" alt="">
+      </div>
       <label for="cover" class="form-label">Cover Image</label>
-      <input type="text" name="cover" id="cover" class="form-control @error('cover') is_invalid @enderror" placeholder="Https//" aria-describedby="coverHelper" value="{{$post->cover}}">
+      <input type="file" name="cover" id="cover" class="form-control @error('cover') is_invalid @enderror" placeholder="Https//" aria-describedby="coverHelper">
       <small id="coverHelper" class="text-muted">Add Your Post Cover Image</small>
     </div>
 

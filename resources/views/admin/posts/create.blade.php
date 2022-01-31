@@ -7,7 +7,7 @@
 
 @include('partials.errors')
 
-<form action="{{route('admin.posts.store')}}" method="post">
+<form action="{{route('admin.posts.store')}}" method="post" enctype="multipart/form-data">
     @csrf 
 
     <div class="mb-3">
@@ -24,7 +24,7 @@
 
     <div class="mb-3">
       <label for="cover" class="form-label">Cover Image</label>
-      <input type="text" name="cover" id="cover" class="form-control @error('cover') is_invalid @enderror" placeholder="Https//" aria-describedby="coverHelper" value="{{old('cover')}}">
+      <input type="file" name="cover" id="cover" class="form-control @error('cover') is_invalid @enderror" placeholder="Https//" aria-describedby="coverHelper"  accept=".jpeg,.png">
       <small id="coverHelper" class="text-muted">Add Your Post Cover Image</small>
     </div>
 

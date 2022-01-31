@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -49,11 +50,17 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => ['required', 'unique:posts', 'max:200'],
             'sub_title' => ['nullable'],
-            'cover' => ['nullable'],
+            'cover' => ['nullable', 'image', 'max:100'],
             'body' => ['nullable'],
             'category_id' => ['nullable', 'exists:categories,id'],
             
         ]);
+
+        if($request->file('cover')){
+
+            $cover_path = Storage::put('post_images', $request()->file('cover'))->store('post_images');
+            $validated['cover'] = $cover_path;
+        }
 
 
         $validated['slug'] = Str::slug($validated['title']);

@@ -4,7 +4,7 @@
 @section('content')
 
 <div class="container">
-    <img class="img-fluid" src="{{$post->cover}}" alt="{{$post->title}}">
+    <img class="img-fluid" src="{{asset('storage/' . $post->cover}}" alt="{{$post->title}}">
 
     <h1 class="card-title">{{$post->title}}</h1>
     <h4 class="card-title">{{$post->sub_title}}</h4>
