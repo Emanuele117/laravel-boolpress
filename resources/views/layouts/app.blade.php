@@ -40,10 +40,7 @@
                             <a class="nav-link" href="{{route('posts.index')}}">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contacts</a>
+                            <a class="nav-link" href="{{route('contacts')}}">Contacts</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('products.index')}}">shop</a>
@@ -87,7 +84,10 @@
         </nav>
 
         <main class="py-4">
+            
             @yield('content')
+
+            
         </main>
     </div>
 </body>

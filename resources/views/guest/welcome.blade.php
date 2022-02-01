@@ -3,14 +3,16 @@
 @section('content')
 
 <div class="p-5 bg-light">
-    <div class="container">
-        <h1 class="display-3">Welcome</h1>
-        <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia voluptas aliquam excepturi iusto distinctio impedit quaerat sint molestiae, pariatur tempora hic, aperiam inventore necessitatibus esse, porro tenetur a error dolores.</p>
-        <hr class="my-2">
-        <p>View my shop</p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="{{route('products.index')}}" role="button">Vai allo shop</a>
-        </p>
+    <div class="contenitore-img">
+        <div class="container contenitore_homepage">
+            <h1 class="display-3">Crea un post in pochi istanti.</h1>
+            <p class="lead">Boolpress.com ti offre tutti gli strumenti necessari per creare un post, supporto di qualità e altro ancora.</p>
+            <hr class="my-2">
+            <p>Alcuni esempi di Post.</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{{route('products.index')}}" role="button">Vai ai Post</a>
+            </p>
+        </div>
     </div>
 </div>
 
