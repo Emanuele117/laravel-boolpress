@@ -38,7 +38,7 @@ Route::resource('posts', PostController::class)->only([
 Route::get('categories/{category:slug}/posts', 'CategoryController@posts')->name('categories.posts');
 Route::get('tags/{tag:slug}/posts', 'TagController@posts')->name('tags.posts');
 
-Auth::routes(['register' => false]);
+Auth::routes();
 
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('auth')->group(function(){
