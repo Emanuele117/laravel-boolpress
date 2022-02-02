@@ -66,5 +66,11 @@
     </div>
 </div>
 
+<div class="container-fluid">
+    <h1>Posts</h1>
+
+    <post-list></post-list>
+</div>
+
 
 @endsection

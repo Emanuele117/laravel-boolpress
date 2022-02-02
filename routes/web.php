@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('guest.welcome');
 })->name('home');
 
+Route::get('/posts', function(){
+    return view('guest.posts.index');
+});
 
 Route::get('contacts', 'PageController@contacts')->name('contacts');
 
