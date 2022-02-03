@@ -21,7 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Vue.component('posts-list', require('./components/PostsListComponent.vue').default);
+Vue.component('posts-list', require('./components/PostsListComponent').default);
 
 
 /**

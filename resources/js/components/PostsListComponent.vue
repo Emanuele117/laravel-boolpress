@@ -1,5 +1,5 @@
 <template>
-  <section class="posts">
+  <section class="posts" v-if="posts.length">
     <post class="post" v-for="post in posts" :key="post">
       <div class="card">
         <div class="card-body">
@@ -17,12 +17,13 @@ export default {
       loading: true,
       meta: null,
       links: null,
+      posts: [],
     };
   },
   mounted() {
     axios.get("api/posts").then((response) => {
       console.log(response);
-      this.posts = response.data.data;
+      this.posts = response.data;
 
       this.loading = false;
     });

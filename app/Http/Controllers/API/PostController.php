@@ -16,8 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with(['tags'])->paginate(5);
-        return $posts;
+        return Post::with(['tags'])->paginate(5);
+        
     }
 
     /**

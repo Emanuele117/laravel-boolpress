@@ -11,7 +11,7 @@
                     @foreach($posts as $post)
                     <div class="col-md-4">
                         <div class="card">
-                            <img class="card-img-top" src="{{asset('storage/' . $post->cover)}}" alt="{{$post->title}}">
+                            <img class="card-img-top" src="{{ $post->cover }}" alt="{{$post->title}}">
                             <div class="card-body">
                                 <h4 class="card-title">{{$post->title}}</h4>
                                 <a href="{{route('posts.show', $post->slug)}}">View Product</a>
