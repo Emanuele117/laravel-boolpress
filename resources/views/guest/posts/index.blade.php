@@ -69,7 +69,7 @@
 <div class="container-fluid">
     <h1>Posts</h1>
 
-    <post-list></post-list>
+    <posts-list></posts-list>
 </div>
 
 

@@ -1,12 +1,12 @@
 <template>
   <section class="posts">
-    <div class="post" v-for="post in posts" :key="post">
+    <post class="post" v-for="post in posts" :key="post">
       <div class="card">
         <div class="card-body">
           <h3>{{ post.title }}</h3>
         </div>
       </div>
-    </div>
+    </post>
   </section>
 </template>
 
@@ -15,7 +15,6 @@ export default {
   data() {
     return {
       loading: true,
-      posts: null,
       meta: null,
       links: null,
     };
