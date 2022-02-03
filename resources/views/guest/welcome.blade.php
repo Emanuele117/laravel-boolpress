@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.spa')
 
 @section('content')
 
-<div class="p-5 bg-light">
+<!-- <div class="p-5 bg-light">
     <div class="contenitore-img">
         <div class="container contenitore_homepage">
             <h1 class="display-3">Crea un post in pochi istanti.</h1>
@@ -14,6 +14,8 @@
             </p>
         </div>
     </div>
-</div>
+</div> -->
+
+<App></App>
 
 @endsection

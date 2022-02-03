@@ -1,12 +1,12 @@
 <template>
-  <section class="posts" v-if="posts.length">
-    <post class="post" v-for="post in posts" :key="post">
+  <section class="posts d-flex flex-wrap">
+    <div class="post" v-for="post in posts" :key="post">
       <div class="card">
         <div class="card-body">
           <h3>{{ post.title }}</h3>
         </div>
       </div>
-    </post>
+    </div>
   </section>
 </template>
 

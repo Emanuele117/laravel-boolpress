@@ -13,13 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('guest.welcome');
-})->name('home');
 
-Route::get('/posts', function(){
+
+/* Route::get('/posts', function(){
     return view('guest.posts.index');
-});
+}); */
 
 Route::get('contacts', 'PageController@contacts')->name('contacts');
 
@@ -53,6 +51,10 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('auth')->
     Route::resource('tags', TagController::class);
 
 });
+
+Route::get('/{any}', function () {
+    return view('guest.welcome');
+})->where('any', '.*');
 
 
 /*
